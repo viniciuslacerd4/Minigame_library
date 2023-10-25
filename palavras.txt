@@ -1,0 +1,13 @@
+Javascript
+Python
+Java
+PHP
+TypeScript
+Rubi
+Swift
+Shell
+Scala
+Go
+Kotlin
+Perl
+Rust
