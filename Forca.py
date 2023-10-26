@@ -66,6 +66,8 @@ def play():
         print("       \_______/           ")
         print("\nA palavra era {}.".format(palavra_secreta))
 
+    input("\npressione enter")
+
 # Abertura do Game
 def imprime_abertura():
     print("**************")

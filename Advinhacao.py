@@ -4,9 +4,7 @@ import time
 
 def play():
     # Abertura do Game
-    print("*****************")
-    print("Advinhe o número!")
-    print("***************** \n")
+    imprime_abertura()
 
     # Escolhendo a dificuldade do Game
     dif_aceita = 0
@@ -70,7 +68,15 @@ def play():
             print("Você errou! O seu chute foi menor que o número secreto \n")
 
     # Finalização
-    if(correto):
+    final()
+
+def imprime_abertura():
+    print("*****************")
+    print("Advinhe o número!")
+    print("***************** \n")
+
+def final():
+    if (correto):
         print("Fim do jogo.")
     else:
         print(f"Fim de jogo, infelizmente não foi dessa vez, o número era: {sorte}.")
