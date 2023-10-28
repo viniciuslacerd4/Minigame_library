@@ -1,4 +1,6 @@
 import random
+import Jogos
+
 
 def play():
 
@@ -14,6 +16,7 @@ def play():
     enforcou = False
     acertou = False
     erros = 0
+    game_mode = 0
 
 
     # Enquanto não esgotar as tentativas e acertar a palavra, repetir a sequencia dentro do while
@@ -66,7 +69,31 @@ def play():
         print("       \_______/           ")
         print("\nA palavra era {}.".format(palavra_secreta))
 
-    input("\npressione enter")
+
+    jogar_novamente = input("\n Deseja jogar novamente?(Sim/Não)")
+    jogar_novamente = jogar_novamente.upper()
+
+    while(game_mode == 0):
+        if (jogar_novamente == "SIM"):
+            game_mode = 1
+        elif (jogar_novamente == "NÃO"):
+            ir_menu = input("\n Deseja retornar ao menu principal?(Sim/Não)")
+            ir_menu = ir_menu.upper()
+            if (ir_menu == sim):
+                print()
+                Jogos.menu()
+            elif (ir_menu == não):
+                game_mode = 2
+        else:
+            print("Selecione uma opção válida!\n")
+            game_mode = 0
+    while True:
+        if (game_mode == 1):
+            print()
+            play()
+        elif(game_mode == 2):
+            print("Até breve!")
+            break
 
 # Abertura do Game
 def imprime_abertura():
