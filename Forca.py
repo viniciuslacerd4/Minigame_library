@@ -3,6 +3,37 @@ import Jogos
 
 
 def play():
+    game_mode = 0
+    while (game_mode == 0):
+        game()
+        jogar_novamente = input("\n Deseja jogar novamente?(Sim/Não)")
+        jogar_novamente = jogar_novamente.upper()
+        game_func = 0
+        while (game_func == 0):
+            if (jogar_novamente == "SIM"):
+                print()
+                game_mode = 0
+                game_func = 1
+            elif (jogar_novamente == "NÃO"):
+                ir_menu = input("\n Deseja retornar ao menu principal?(Sim/Não)")
+                ir_menu = ir_menu.upper()
+                while True:
+                    if (ir_menu == "SIM"):
+                        print()
+                        Jogos.menu()
+                    elif (ir_menu == "NÃO"):
+                        game_func = 1
+                        game_mode = 1
+                        break
+                    else:
+                        print("Selecione uma opção válida!1\n")
+            else:
+                print("Selecione uma opção válida!2\n")
+
+
+# Abertura do Game
+
+def game():
 
     # Abertura e sorteio da palavra
     imprime_abertura()
@@ -16,7 +47,6 @@ def play():
     enforcou = False
     acertou = False
     erros = 0
-    game_mode = 0
 
 
     # Enquanto não esgotar as tentativas e acertar a palavra, repetir a sequencia dentro do while
@@ -70,32 +100,7 @@ def play():
         print("\nA palavra era {}.".format(palavra_secreta))
 
 
-    jogar_novamente = input("\n Deseja jogar novamente?(Sim/Não)")
-    jogar_novamente = jogar_novamente.upper()
 
-    while(game_mode == 0):
-        if (jogar_novamente == "SIM"):
-            game_mode = 1
-        elif (jogar_novamente == "NÃO"):
-            ir_menu = input("\n Deseja retornar ao menu principal?(Sim/Não)")
-            ir_menu = ir_menu.upper()
-            if (ir_menu == sim):
-                print()
-                Jogos.menu()
-            elif (ir_menu == não):
-                game_mode = 2
-        else:
-            print("Selecione uma opção válida!\n")
-            game_mode = 0
-    while True:
-        if (game_mode == 1):
-            print()
-            play()
-        elif(game_mode == 2):
-            print("Até breve!")
-            break
-
-# Abertura do Game
 def imprime_abertura():
     print("**************")
     print("Jogo da forca!")
