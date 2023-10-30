@@ -26,9 +26,9 @@ def play():
                         game_mode = 1
                         break
                     else:
-                        print("Selecione uma opção válida!1\n")
+                        print("Selecione uma opção válida!\n")
             else:
-                print("Selecione uma opção válida!2\n")
+                print("Selecione uma opção válida!\n")
 
 
 # Abertura do Game
