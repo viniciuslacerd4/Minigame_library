@@ -1,16 +1,45 @@
 # Importar bibliotecas
 import random
 import time
+import Jogos
 
 def play():
+    game_mode = 0
+    while (game_mode == 0):
+        game()
+        jogar_novamente = input("\n Deseja jogar novamente?(Sim/Não)")
+        jogar_novamente = jogar_novamente.upper()
+        game_func = 0
+        while (game_func == 0):
+            if (jogar_novamente == "SIM"):
+                print()
+                game_mode = 0
+                game_func = 1
+            elif (jogar_novamente == "NÃO"):
+                ir_menu = input("\n Deseja retornar ao menu principal?(Sim/Não)")
+                ir_menu = ir_menu.upper()
+                while True:
+                    if (ir_menu == "SIM"):
+                        print()
+                        Jogos.menu()
+                    elif (ir_menu == "NÃO"):
+                        game_func = 1
+                        game_mode = 1
+                        break
+                    else:
+                        print("Selecione uma opção válida!\n")
+            else:
+                print("Selecione uma opção válida!\n")
+
+def game():
     # Abertura do Game
     imprime_abertura()
 
     # Escolhendo a dificuldade do Game
     dificuldade = seleciona_dificuldade()
 
-    #Sorteando o número e definindo o número de tentativas(sempre será uma a menos que o número digitado se "for" for usado)
-    sorte = random.randint(1,dificuldade)
+    # Sorteando o número e definindo o número de tentativas(sempre será uma a menos que o número digitado se "for" for usado)
+    sorte = random.randint(1, dificuldade)
     tentativas = 6
     print("\nSorteando o número!\n")
     time.sleep(2)
@@ -99,7 +128,6 @@ def final(correto, sorte):
         print(" `--'  |=|")
         print("       |=|")
         print(f"infelizmente não foi dessa vez, o número era: {sorte}.")
-    input("\npressione enter")
 
 if(__name__ == "__main__"):
     play()
